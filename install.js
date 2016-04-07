@@ -7,7 +7,7 @@ var util = require("util");
 var path = require("path");
 
 var downloadedDir = './bin/';
-var downloadUrl = 'http://selenium.googlecode.com/files/selenium-server-standalone-2.39.0.jar';
+var downloadUrl = 'http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar';
 
 (function() {
   var fileName = downloadUrl.split('/').pop();
