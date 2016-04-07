@@ -13,12 +13,13 @@ module.exports = function(grunt) {
   var webdriver = require('selenium-webdriver'),
       remote = require('selenium-webdriver/remote'),
       async = require('async'),
+      fs = require("fs"),
       server;
   
   grunt.registerTask('webdriver_startup', 'startup selenium server standalone', function() {
     var done = this.async();
     var options = this.options({
-      jar: __dirname + '/../bin/selenium-server-standalone-2.39.0.jar',
+      jar: __dirname + '/../bin/selenium-server-standalone-2.53.0.jar',
       port: 4444
     });
     var jar = options.jar;
@@ -53,7 +54,7 @@ module.exports = function(grunt) {
     
     var driver, 
         browserNames = options.browserNames,
-        json = require(options.qunitJson),
+        json = JSON.parse(fs.readFileSync(options.qunitJson)),
         baseUrl = options.baseUrl || json.baseUrl,
         defaultWaitSeconds = json.waitSeconds,
         reportsDir = options.reportsDir;
